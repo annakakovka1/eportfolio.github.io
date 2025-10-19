@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Decipheting Big Data</title>
+		<title>Generic - Anna Kakovka</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,13 +19,16 @@
 				color: #ffffff !important;
 			}
 
-			/* Transparent name styling */
-			.logo strong {
-				color: rgba(255, 255, 255, 0.3) !important; /* semi-transparent white */
-				transition: color 0.3s ease;
+			/* Header logo – match homepage (Forty style) */
+			/* Uppercase with letter spacing, inherit color (not transparent) */
+			#header .logo {
+				text-transform: uppercase;
+				letter-spacing: 0.25em;
+				font-weight: 600;
 			}
-			.logo strong:hover {
-				color: rgba(255, 255, 255, 0.6) !important; /* slightly brighter on hover */
+			#header .logo strong {
+				color: inherit !important;
+				font-weight: 800;
 			}
 
 			/* Uniform section headings */
@@ -94,16 +97,15 @@
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Header -->
-				<!-- Note: The "styleN" class below should match that of the banner element. -->
-					<header id="header" class="alt style2">
-						<a href="index.html" class="logo"><strong>Anna Kakovka</strong> </a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo"><strong>Anna Kakovka</strong></a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
 
 			<!-- Menu -->
 			<nav id="menu">
@@ -319,6 +321,3 @@ print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.
 
 	</body>
 </html>
-
-
-
