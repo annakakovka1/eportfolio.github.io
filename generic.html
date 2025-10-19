@@ -14,51 +14,43 @@
 
 		<!-- Custom styles -->
 		<style>
-			/* Make all text white */
+			/* Make all text white for dark theme */
 			body, p, ul, li, a, h1, h2, h3, h4, h5, h6, code, em, strong {
 				color: #ffffff !important;
 			}
 
-			.subtitle {
-				font-size: 1.25rem;
-				font-weight: normal;
-				margin-top: 1em;
-				margin-bottom: 0.5em;
-				color: #ffffff !important;
-			}
-			.normal-text {
-				font-weight: normal;
-				color: #ffffff !important;
-			}
-			.section-label {
-				font-weight: normal;
-				font-size: 1rem;
-				margin-top: 1em;
-				color: #ffffff !important;
-			}
+			/* Uniform section headings */
 			.major h3 {
 				font-size: 1.5rem;
 				font-weight: 600;
-				color: #ffffff !important;
 				margin-bottom: 0.8em;
 			}
-			ul.normal-text li {
-				margin-bottom: 0.5em;
+
+			/* Bold subtitle style for Web Scraping, Summary, Reflection */
+			.subtitle {
+				font-size: 1.25rem;
+				font-weight: bold;
+				margin-top: 1.5em;
+				margin-bottom: 0.8em;
 				color: #ffffff !important;
 			}
-			/* Keep links white as requested */
+
+			.normal-text { font-weight: normal; }
+
+			ul.normal-text li { margin-bottom: 0.5em; }
+
 			a {
 				color: #ffffff !important;
 				text-decoration: underline;
 			}
-			/* Optional: make inline code readable on dark bg */
+
 			code {
 				color: #ffefd6 !important;
 				background: rgba(255, 255, 255, 0.1);
 				padding: 2px 4px;
 				border-radius: 3px;
 			}
-			/* Make pre/code blocks readable */
+
 			pre code {
 				display: block;
 				overflow-x: auto;
@@ -66,6 +58,20 @@
 				background: rgba(255, 255, 255, 0.08);
 				padding: 1rem;
 				border-radius: 6px;
+			}
+
+			em {
+				font-style: italic;
+				color: #e8e8e8 !important;
+			}
+
+			h4.section-label {
+				margin-top: 2em;
+				margin-bottom: 0.8em;
+				font-size: 1.2rem;
+				font-weight: 500;
+				color: #ffffff !important;
+				text-decoration: underline;
 			}
 		</style>
 	</head>
@@ -103,7 +109,7 @@
 						<header class="major">
 							<h1>Deciphering Big Data</h1>
 						</header>
-						<p>In a world overflowing with information, Big Data holds the key to understanding patterns that drive innovation, decision-making, and growth. The true challenge lies not in collecting data, but in deciphering it as transforming vast, unstructured information into meaningful insights. My journey in exploring Big Data focuses on bridging the gap between complexity and clarity, leveraging analytics, visualisation, and critical thinking to reveal stories hidden within the numbers.</p>
+						<p>In a world overflowing with information, Big Data holds the key to understanding patterns that drive innovation, decision-making, and growth. The true challenge lies not in collecting data, but in deciphering it — transforming vast, unstructured information into meaningful insights. My journey in exploring Big Data focuses on bridging the gap between complexity and clarity, leveraging analytics, visualisation, and critical thinking to reveal stories hidden within the numbers.</p>
 					</div>
 				</section>
 
@@ -134,6 +140,15 @@
 						<p>Despite these benefits, Huxley et al. (2020) remind us that large-scale data collection comes with serious challenges. IoT devices generate massive amounts of data in different formats, which often makes it hard to clean, integrate and interpret effectively (Mansouri et al., 2021). Security and privacy risks are also significant — billions of connected devices increase the chances of data breaches and misuse of personal information (Tawalbeh et al., 2020). To manage these risks, frameworks such as the NIST IoT Security Baseline (Fagan et al., 2020) and the UK ICO’s IoT guidance (ICO, 2025) stress the importance of encryption, privacy-by-design, and limiting unnecessary data collection.</p>
 
 						<p>Overall, while IoT offers great opportunities for innovation and smarter systems, it must be developed responsibly. Balancing the benefits of data-driven insights with strong governance and ethical oversight is key to making IoT a trustworthy and sustainable technology.</p>
+
+						<h4 class="section-label">References</h4>
+						<p><em>Fagan, M. et al.</em> (2020) <em>NISTIR 8259A: IoT Device Cybersecurity Capability Core Baseline.</em> Gaithersburg, MD: NIST.</p>
+						<p><em>Huxley, [Initials]. et al.</em> (2020) [Title of article]. <em>[Journal/Publisher]</em>.</p>
+						<p><em>ICO</em> (2025) <em>Guidance for consumer Internet of Things products and services.</em> Information Commissioner’s Office.</p>
+						<p><em>Mansouri, T., Farid, F. and Mammadli, A.</em> (2021) ‘IoT Data Quality Issues and Potential Solutions’, <em>arXiv preprint</em>, arXiv:2103.13303.</p>
+						<p><em>Nasajpour, M. et al.</em> (2020) ‘Internet of Things for Current COVID-19 and Future Pandemics’, <em>IEEE Access</em>, 8, pp. 188802–188826.</p>
+						<p><em>Nižetić, S. et al.</em> (2020) ‘Internet of Things (IoT): Opportunities, issues and challenges’, <em>Journal of Cleaner Production</em>, 274, 122877.</p>
+						<p><em>Tawalbeh, L. et al.</em> (2020) ‘IoT Privacy and Security: Challenges and Solutions’, <em>Applied Sciences</em>, 10(12), 4102.</p>
 					</div>
 				</section>
 
@@ -146,14 +161,7 @@
 
 						<p class="subtitle">Web Scraping “Data Scientist” Jobs with Python</p>
 
-						<p>
-							This Python script demonstrates how to use
-							<strong>Requests</strong> and <strong>BeautifulSoup4</strong>
-							to scrape job postings containing the keyword “Data Scientist”.
-							It fetches data from a tutorial-safe website
-							(<a href="https://realpython.github.io/fake-jobs/" target="_blank" rel="noopener">Fake Jobs Demo Page</a>)
-							and saves it as a <strong>JSON</strong> file.
-						</p>
+						<p>This Python script demonstrates how to use <strong>Requests</strong> and <strong>BeautifulSoup4</strong> to scrape job postings containing the keyword “Data Scientist”. It fetches data from a tutorial-safe website (<a href="https://realpython.github.io/fake-jobs/" target="_blank" rel="noopener">Fake Jobs Demo Page</a>) and saves it as a <strong>JSON</strong> file.</p>
 
 <pre><code class="language-python">
 # scrape_data_scientist_jobs.py
@@ -203,22 +211,26 @@ with open(output_file, "w", encoding="utf-8") as f:
 print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.")
 </code></pre>
 
-						<p><em>Note:</em> This example uses a public tutorial site.
-						Always check a site’s <code>robots.txt</code> file and terms of service before scraping.</p>
+						<p><em>Note:</em> This example uses a public tutorial site. Always check a site’s <code>robots.txt</code> file and terms of service before scraping.</p>
 
-						<p class="section-label">Summary of findings:</p>
-
+						<p class="subtitle">Summary of findings</p>
 						<ul class="normal-text">
 							<li>I used <code>requests</code> to fetch an HTML page and <code>BeautifulSoup</code> to parse job listings containing the keyword “Data Scientist”.</li>
 							<li>The extracted data — including title, company, location, and apply link — were saved as a <code>JSON</code> file.</li>
 							<li>The process followed the Request → Protocol → Response pattern of inter-process communication.</li>
 						</ul>
 
-						<p class="section-label">Critical reflection:</p>
+						<p class="subtitle">Critical reflection</p>
+						<p class="normal-text">The main challenge was ensuring reliability and respecting ethical scraping rules. I used a static demo site (safe to scrape) to avoid legal or security issues. Data wrangling challenges include cleaning inconsistent data, changing page structures, and network errors. Using structured formats like JSON facilitates interoperability and data sharing. In a team context, proper task separation (developer, tester, analyst) and documentation are essential for maintainability and reproducibility.</p>
 
-						<p class="normal-text">
-						The main challenge was ensuring reliability and respecting ethical scraping rules. I used a static demo site (safe to scrape) to avoid legal or security issues. Data wrangling challenges include cleaning inconsistent data, changing page structures, and network errors. Using structured formats like JSON facilitates interoperability and data sharing. In a team context, proper task separation (developer, tester, analyst) and documentation are essential for maintainability and reproducibility.
-						</p>
+						<h4 class="section-label">References</h4>
+						<p><em>Fagan, M. et al.</em> (2020) <em>NISTIR 8259A: IoT Device Cybersecurity Capability Core Baseline.</em> Gaithersburg, MD: NIST.</p>
+						<p><em>Huxley, [Initials]. et al.</em> (2020) [Title of article]. <em>[Journal/Publisher]</em>.</p>
+						<p><em>ICO</em> (2025) <em>Guidance for consumer Internet of Things products and services.</em> Information Commissioner’s Office.</p>
+						<p><em>Mansouri, T., Farid, F. and Mammadli, A.</em> (2021) ‘IoT Data Quality Issues and Potential Solutions’, <em>arXiv preprint</em>, arXiv:2103.13303.</p>
+						<p><em>Nasajpour, M. et al.</em> (2020) ‘Internet of Things for Current COVID-19 and Future Pandemics’, <em>IEEE Access</em>, 8, pp. 188802–188826.</p>
+						<p><em>Nižetić, S. et al.</em> (2020) ‘Internet of Things (IoT): Opportunities, issues and challenges’, <em>Journal of Cleaner Production</em>, 274, 122877.</p>
+						<p><em>Tawalbeh, L. et al.</em> (2020) ‘IoT Privacy and Security: Challenges and Solutions’, <em>Applied Sciences</em>, 10(12), 4102.</p>
 					</div>
 				</section>
 
@@ -251,7 +263,7 @@ print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.
 						<header class="major">
 							<h3>Professional Skills Matrix and Action Plan</h3>
 						</header>
-						<p>What skills have I gained or enhanced as a result of this module and how can I use it? What else do I need to learn?</p>
+						<p>What skills have I gained or enhanced as a result of this module and how can I use them? What else do I need to learn?</p>
 						<ul class="actions">
 							<li><a href="generic.html" class="button next">Learn More</a></li>
 						</ul>
@@ -268,7 +280,8 @@ print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.
 						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+						<li>&copy; Untitled</li>
+						<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</div>
 			</footer>
