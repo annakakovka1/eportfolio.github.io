@@ -6,18 +6,26 @@
 -->
 <html>
 	<head>
-		<title>Personal Statement</title>
+		<title>Generic - Anna Kakovka</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+
 		<!-- Custom styles -->
 		<style>
 			/* Make all text white for dark theme */
 			body, p, ul, li, a, h1, h2, h3, h4, h5, h6, code, em, strong {
 				color: #ffffff !important;
+			}
+
+			/* Transparent name styling */
+			.logo strong {
+				color: rgba(255, 255, 255, 0.3) !important; /* semi-transparent white */
+				transition: color 0.3s ease;
+			}
+			.logo strong:hover {
+				color: rgba(255, 255, 255, 0.6) !important; /* slightly brighter on hover */
 			}
 
 			/* Uniform section headings */
@@ -310,4 +318,3 @@ print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.
 
 	</body>
 </html>
-
