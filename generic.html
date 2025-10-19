@@ -6,21 +6,19 @@
 -->
 <html>
 	<head>
-		<title>Generic - Anna Kakovka</title>
+		<title>Deciphering Big Data - Anna Kakovka</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-		<!-- Custom styles -->
 		<style>
-			/* Make all text white for dark theme */
+			/* Global white text for dark theme */
 			body, p, ul, li, a, h1, h2, h3, h4, h5, h6, code, em, strong {
 				color: #ffffff !important;
 			}
 
-			/* Header logo – match homepage (Forty style) */
-			/* Uppercase with letter spacing, inherit color (not transparent) */
+			/* Header logo styling (homepage match) */
 			#header .logo {
 				text-transform: uppercase;
 				letter-spacing: 0.25em;
@@ -31,14 +29,14 @@
 				font-weight: 800;
 			}
 
-			/* Uniform section headings */
+			/* Section headings uniform */
 			.major h3 {
 				font-size: 1.5rem;
 				font-weight: 600;
 				margin-bottom: 0.8em;
 			}
 
-			/* Bold subtitle style for Web Scraping, Summary, Reflection */
+			/* Bold subtitles (Web Scraping, Summary, Reflection) */
 			.subtitle {
 				font-size: 1.25rem;
 				font-weight: bold;
@@ -77,7 +75,6 @@
 				color: #e8e8e8 !important;
 			}
 
-			/* Reference styling — smaller spacing between lines */
 			.references p {
 				margin-bottom: 0.3em;
 				line-height: 1.2;
@@ -96,21 +93,12 @@
 
 	<body class="is-preload">
 
-		
 		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Header -->
-				<!-- Note: The "styleN" class below should match that of the banner element. -->
-					<header id="header" class="alt style2">
-						<a href="index.html" class="logo"><strong>Anna Kakovka</strong> </a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+		<div id="wrapper">
 
 			<!-- Header -->
-			<header id="header">
+			<!-- Note: The "styleN" class below should match that of the banner element. -->
+			<header id="header" class="alt style2">
 				<a href="index.html" class="logo"><strong>Anna Kakovka</strong></a>
 				<nav>
 					<a href="#menu">Menu</a>
@@ -128,15 +116,27 @@
 				</ul>
 			</nav>
 
+			<!-- Banner -->
+			<section id="banner" class="style2">
+				<div class="inner">
+					<span class="image">
+						<img src="images/pic07.jpg" alt="" />
+					</span>
+					<header class="major">
+						<h1>Deciphering Big Data</h1>
+					</header>
+					<div class="content">
+						<p>Bridging the gap between complexity and clarity using analytics and insight.</p>
+					</div>
+				</div>
+			</section>
+
 			<!-- Main -->
 			<div id="main" class="alt">
 
 				<!-- Introduction -->
 				<section id="intro">
 					<div class="inner">
-						<header class="major">
-							<h1>Deciphering Big Data</h1>
-						</header>
 						<p>In a world overflowing with information, Big Data holds the key to understanding patterns that drive innovation, decision-making, and growth. The true challenge lies not in collecting data, but in deciphering it — transforming vast, unstructured information into meaningful insights. My journey in exploring Big Data focuses on bridging the gap between complexity and clarity, leveraging analytics, visualisation, and critical thinking to reveal stories hidden within the numbers.</p>
 					</div>
 				</section>
@@ -199,46 +199,6 @@
 Scrape job postings containing 'Data Scientist' and save them to a JSON file.
 Uses Requests for HTTP and BeautifulSoup for parsing HTML.
 """
-
-import requests
-from bs4 import BeautifulSoup
-import json
-import time
-
-# 1. Identify the webpage (safe demo site)
-URL = "https://realpython.github.io/fake-jobs/"
-KEYWORD = "Data Scientist"
-
-# 2. Send HTTP request
-response = requests.get(URL)
-response.raise_for_status()  # ensure successful request
-
-# 3. Parse HTML with BeautifulSoup
-soup = BeautifulSoup(response.text, "html.parser")
-
-# 4. Extract relevant data
-jobs = []
-for job_card in soup.find_all("div", class_="card-content"):
-    title = job_card.find("h2", class_="title").get_text(strip=True)
-    if KEYWORD.lower() in title.lower():
-        company = job_card.find("h3", class_="company").get_text(strip=True)
-        location = job_card.find("p", class_="location").get_text(strip=True)
-        link = job_card.find_next("a", string="Apply")["href"]
-        jobs.append({
-            "title": title,
-            "company": company,
-            "location": location,
-            "apply_url": link,
-            "keyword": KEYWORD,
-            "scraped_at": time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
-        })
-
-# 5. Store data in JSON format
-output_file = "data_scientist_jobs.json"
-with open(output_file, "w", encoding="utf-8") as f:
-    json.dump(jobs, f, indent=2, ensure_ascii=False)
-
-print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.")
 </code></pre>
 
 						<p><em>Note:</em> This example uses a public tutorial site. Always check a site’s <code>robots.txt</code> file and terms of service before scraping.</p>
@@ -331,4 +291,3 @@ print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.
 
 	</body>
 </html>
-
