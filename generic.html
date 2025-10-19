@@ -65,6 +65,12 @@
 				color: #e8e8e8 !important;
 			}
 
+			/* Reference styling — smaller spacing between lines */
+			.references p {
+				margin-bottom: 0.3em;
+				line-height: 1.2;
+			}
+
 			h4.section-label {
 				margin-top: 2em;
 				margin-bottom: 0.8em;
@@ -142,13 +148,15 @@
 						<p>Overall, while IoT offers great opportunities for innovation and smarter systems, it must be developed responsibly. Balancing the benefits of data-driven insights with strong governance and ethical oversight is key to making IoT a trustworthy and sustainable technology.</p>
 
 						<h4 class="section-label">References</h4>
-						<p><em>Fagan, M. et al.</em> (2020) <em>NISTIR 8259A: IoT Device Cybersecurity Capability Core Baseline.</em> Gaithersburg, MD: NIST.</p>
-						<p><em>Huxley, [Initials]. et al.</em> (2020) [Title of article]. <em>[Journal/Publisher]</em>.</p>
-						<p><em>ICO</em> (2025) <em>Guidance for consumer Internet of Things products and services.</em> Information Commissioner’s Office.</p>
-						<p><em>Mansouri, T., Farid, F. and Mammadli, A.</em> (2021) ‘IoT Data Quality Issues and Potential Solutions’, <em>arXiv preprint</em>, arXiv:2103.13303.</p>
-						<p><em>Nasajpour, M. et al.</em> (2020) ‘Internet of Things for Current COVID-19 and Future Pandemics’, <em>IEEE Access</em>, 8, pp. 188802–188826.</p>
-						<p><em>Nižetić, S. et al.</em> (2020) ‘Internet of Things (IoT): Opportunities, issues and challenges’, <em>Journal of Cleaner Production</em>, 274, 122877.</p>
-						<p><em>Tawalbeh, L. et al.</em> (2020) ‘IoT Privacy and Security: Challenges and Solutions’, <em>Applied Sciences</em>, 10(12), 4102.</p>
+						<div class="references">
+							<p><em>Fagan, M. et al.</em> (2020) <em>NISTIR 8259A: IoT Device Cybersecurity Capability Core Baseline.</em> Gaithersburg, MD: NIST.</p>
+							<p><em>Huxley, [Initials]. et al.</em> (2020) [Title of article]. <em>[Journal/Publisher]</em>.</p>
+							<p><em>ICO</em> (2025) <em>Guidance for consumer Internet of Things products and services.</em> Information Commissioner’s Office.</p>
+							<p><em>Mansouri, T., Farid, F. and Mammadli, A.</em> (2021) ‘IoT Data Quality Issues and Potential Solutions’, <em>arXiv preprint</em>, arXiv:2103.13303.</p>
+							<p><em>Nasajpour, M. et al.</em> (2020) ‘Internet of Things for Current COVID-19 and Future Pandemics’, <em>IEEE Access</em>, 8, pp. 188802–188826.</p>
+							<p><em>Nižetić, S. et al.</em> (2020) ‘Internet of Things (IoT): Opportunities, issues and challenges’, <em>Journal of Cleaner Production</em>, 274, 122877.</p>
+							<p><em>Tawalbeh, L. et al.</em> (2020) ‘IoT Privacy and Security: Challenges and Solutions’, <em>Applied Sciences</em>, 10(12), 4102.</p>
+						</div>
 					</div>
 				</section>
 
@@ -224,13 +232,15 @@ print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.
 						<p class="normal-text">The main challenge was ensuring reliability and respecting ethical scraping rules. I used a static demo site (safe to scrape) to avoid legal or security issues. Data wrangling challenges include cleaning inconsistent data, changing page structures, and network errors. Using structured formats like JSON facilitates interoperability and data sharing. In a team context, proper task separation (developer, tester, analyst) and documentation are essential for maintainability and reproducibility.</p>
 
 						<h4 class="section-label">References</h4>
-						<p><em>Fagan, M. et al.</em> (2020) <em>NISTIR 8259A: IoT Device Cybersecurity Capability Core Baseline.</em> Gaithersburg, MD: NIST.</p>
-						<p><em>Huxley, [Initials]. et al.</em> (2020) [Title of article]. <em>[Journal/Publisher]</em>.</p>
-						<p><em>ICO</em> (2025) <em>Guidance for consumer Internet of Things products and services.</em> Information Commissioner’s Office.</p>
-						<p><em>Mansouri, T., Farid, F. and Mammadli, A.</em> (2021) ‘IoT Data Quality Issues and Potential Solutions’, <em>arXiv preprint</em>, arXiv:2103.13303.</p>
-						<p><em>Nasajpour, M. et al.</em> (2020) ‘Internet of Things for Current COVID-19 and Future Pandemics’, <em>IEEE Access</em>, 8, pp. 188802–188826.</p>
-						<p><em>Nižetić, S. et al.</em> (2020) ‘Internet of Things (IoT): Opportunities, issues and challenges’, <em>Journal of Cleaner Production</em>, 274, 122877.</p>
-						<p><em>Tawalbeh, L. et al.</em> (2020) ‘IoT Privacy and Security: Challenges and Solutions’, <em>Applied Sciences</em>, 10(12), 4102.</p>
+						<div class="references">
+							<p><em>Fagan, M. et al.</em> (2020) <em>NISTIR 8259A: IoT Device Cybersecurity Capability Core Baseline.</em> Gaithersburg, MD: NIST.</p>
+							<p><em>Huxley, [Initials]. et al.</em> (2020) [Title of article]. <em>[Journal/Publisher]</em>.</p>
+							<p><em>ICO</em> (2025) <em>Guidance for consumer Internet of Things products and services.</em> Information Commissioner’s Office.</p>
+							<p><em>Mansouri, T., Farid, F. and Mammadli, A.</em> (2021) ‘IoT Data Quality Issues and Potential Solutions’, <em>arXiv preprint</em>, arXiv:2103.13303.</p>
+							<p><em>Nasajpour, M. et al.</em> (2020) ‘Internet of Things for Current COVID-19 and Future Pandemics’, <em>IEEE Access</em>, 8, pp. 188802–188826.</p>
+							<p><em>Nižetić, S. et al.</em> (2020) ‘Internet of Things (IoT): Opportunities, issues and challenges’, <em>Journal of Cleaner Production</em>, 274, 122877.</p>
+							<p><em>Tawalbeh, L. et al.</em> (2020) ‘IoT Privacy and Security: Challenges and Solutions’, <em>Applied Sciences</em>, 10(12), 4102.</p>
+						</div>
 					</div>
 				</section>
 
