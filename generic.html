@@ -307,31 +307,53 @@ print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.
 
 
 
-				<!-- Meeting Notes -->
-				<section id="meeting-notes">
-					<div class="inner">
-						<header class="major">
-							<h3>Meeting Notes</h3>
-						</header>
-						<p>Notes from various meetings, as well as feedback from team members and tutors.</p>
-						<ul class="actions">
-							<li><a href="generic.html" class="button">For specific cases, see here</a></li>
-						</ul>
-					</div>
-				</section>
+			🗒️ <b>Meeting Notes – Database Design Proposal: Deciphering Big Data</b>
 
-				<!-- Professional Skills -->
-				<section id="skills">
-					<div class="inner">
-						<header class="major">
-							<h3>Professional Skills Matrix and Action Plan</h3>
-						</header>
-						<p>What skills have I gained or enhanced as a result of this module and how can I use them? What else do I need to learn?</p>
-						<ul class="actions">
-							<li><a href="generic.html" class="button next">Learn More</a></li>
-						</ul>
-					</div>
-				</section>
+<b>Date:</b> [Insert meeting date]<br>
+<b>Attendees:</b> [Insert names, e.g. AK, team members, client reps]<br>
+<b>Prepared by:</b> [Your name]
+
+<hr>
+
+<h3>1. Project Overview</h3>
+
+The client operates in <b>Private Healthcare Services (UK)</b>, offering GP consultations, specialist clinics, diagnostic tests, and billing management.
+
+<b>Objective (✅ Updated by AK):</b> Build a secure, logical database for managing patient records, appointments, treatments, and billing while ensuring GDPR and NHS compliance.
+
+<hr>
+
+<h3>2. Key Additions / Changes (🟩 AK’s Edits in Green)</h3>
+
+- Expanded <b>Objectives</b> section to emphasize <b>security, compliance, and scalability</b>.<br>
+- Clarified <b>data entities</b> (Patient, Healthcare Professionals, Appointment, Treatment, Billing, Department, Insurance Provider).<br>
+- Added details on <b>data types/formats</b> for standardization.<br>
+- Updated attributes to include:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;• EmergencyContactName and Phone<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;• NHSNumber<br>
+- Enhanced clarity on <b>foreign key relationships</b>.<br>
+- 🟩 <b>Proposed addition:</b> Include an <b>ER diagram</b> and <b>sample SQL queries</b> for demonstration.<br>
+- Defined <b>role-based access</b> for data security.<br>
+- Expanded <b>data management pipeline</b> with a detailed cleansing workflow.<br>
+- 🟩 <b>Suggested section:</b> Add a <b>Summary/Evaluation</b> to discuss challenges, limitations, and improvements for future phases.
+
+<hr>
+
+<h3>3. Technical Selections</h3>
+
+- <b>DBMS:</b> MySQL chosen for cost-effectiveness, scalability, and ACID compliance.<br>
+- <b>Security:</b> Role-based access + encryption for sensitive data (e.g., NHS number, contact details).<br>
+- <b>Operations:</b> CRUD-based management and reporting queries (e.g., patient history, departmental workload).
+
+<hr>
+
+<h3>4. Next Steps</h3>
+
+- Add <b>ER diagram</b> and <b>sample SQL queries</b> (AK’s note).<br>
+- Develop <b>Summary/Evaluation</b> section.<br>
+- Review <b>data validation rules</b> for accuracy and compliance.<br>
+- Schedule a <b>follow-up review with the client</b> for design confirmation.
+
 
 			</div>
 
@@ -362,6 +384,7 @@ print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.
 
 	</body>
 </html>
+
 
 
 
