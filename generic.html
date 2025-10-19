@@ -46,14 +46,26 @@
 				margin-bottom: 0.5em;
 				color: #ffffff !important;
 			}
+			/* Keep links white as requested */
 			a {
-				color: #aee8ff !important;
+				color: #ffffff !important;
+				text-decoration: underline;
 			}
+			/* Optional: make inline code readable on dark bg */
 			code {
-				color: #ffcc99 !important;
+				color: #ffefd6 !important;
 				background: rgba(255, 255, 255, 0.1);
 				padding: 2px 4px;
 				border-radius: 3px;
+			}
+			/* Make pre/code blocks readable */
+			pre code {
+				display: block;
+				overflow-x: auto;
+				white-space: pre;
+				background: rgba(255, 255, 255, 0.08);
+				padding: 1rem;
+				border-radius: 6px;
 			}
 		</style>
 	</head>
@@ -149,6 +161,46 @@
 Scrape job postings containing 'Data Scientist' and save them to a JSON file.
 Uses Requests for HTTP and BeautifulSoup for parsing HTML.
 """
+
+import requests
+from bs4 import BeautifulSoup
+import json
+import time
+
+# 1. Identify the webpage (safe demo site)
+URL = "https://realpython.github.io/fake-jobs/"
+KEYWORD = "Data Scientist"
+
+# 2. Send HTTP request
+response = requests.get(URL)
+response.raise_for_status()  # ensure successful request
+
+# 3. Parse HTML with BeautifulSoup
+soup = BeautifulSoup(response.text, "html.parser")
+
+# 4. Extract relevant data
+jobs = []
+for job_card in soup.find_all("div", class_="card-content"):
+    title = job_card.find("h2", class_="title").get_text(strip=True)
+    if KEYWORD.lower() in title.lower():
+        company = job_card.find("h3", class_="company").get_text(strip=True)
+        location = job_card.find("p", class_="location").get_text(strip=True)
+        link = job_card.find_next("a", string="Apply")["href"]
+        jobs.append({
+            "title": title,
+            "company": company,
+            "location": location,
+            "apply_url": link,
+            "keyword": KEYWORD,
+            "scraped_at": time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
+        })
+
+# 5. Store data in JSON format
+output_file = "data_scientist_jobs.json"
+with open(output_file, "w", encoding="utf-8") as f:
+    json.dump(jobs, f, indent=2, ensure_ascii=False)
+
+print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.")
 </code></pre>
 
 						<p><em>Note:</em> This example uses a public tutorial site.
