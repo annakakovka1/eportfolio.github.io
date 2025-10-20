@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE HTML>
 <!--
 	Forty by HTML5 UP
@@ -207,6 +205,7 @@ text-decoration: underline;
 <h3>Activities</h3>
 </header>
 
+	
 <p class="subtitle">Web Scraping “Data Scientist” Jobs with Python</p>
 
 <p>This Python script demonstrates how to use <strong>Requests</strong> and <strong>BeautifulSoup4</strong> to scrape job postings containing the keyword “Data Scientist”. It fetches data from a tutorial-safe website (<a href="https://realpython.github.io/fake-jobs/" target="_blank" rel="noopener">Fake Jobs Demo Page</a>) and saves it as a <strong>JSON</strong> file.</p>
@@ -275,6 +274,70 @@ print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.
 <li>Using structured formats like JSON facilitates interoperability and data sharing.</li>
 <li>In a team context, proper task separation (developer, tester, analyst) and documentation are essential for maintainability and reproducibility.</li></p>
 
+<!-- NEW SUBSECTION ADDED: Security Requirements + Snippets -->
+<p class="subtitle">Security Requirements Specification – Data Sharing API</p>
+
+<p class="normal-text">
+This short specification defines how a Python-based API securely exchanges data using JSON, XML, and SQL. All communication must use HTTPS with modern TLS to protect data in transit. Authentication relies on OAuth 2.1 or signed JWTs, and access is restricted by least-privilege roles at both the API and database layers. Secrets such as API keys and database credentials must be kept in a secret manager and never hardcoded. Inputs are limited to JSON and XML and must be validated against strict schemas. XML parsing disables DTDs and external entities to mitigate XXE. SQL access uses parameterised queries or a safe ORM to prevent injection. Logs capture security-relevant events while redacting personal data and credentials, and rate limiting is applied to defend against abuse and denial-of-service. Data is encrypted at rest, and retention/deletion policies are enforced to meet privacy and governance obligations. The CI/CD pipeline includes static analysis, dependency checks, and targeted security tests (SQLi, XXE, malformed input) before release. The whole team—developers, data engineers, and DevOps—shares responsibility for implementing and monitoring these controls.
+</p>
+
+<h4 class="section-label">Example secure practices (Python)</h4>
+
+<pre><code class="language-python">
+# secure_sql_insert.py
+"""
+Use parameterized queries to prevent SQL injection.
+"""
+
+import psycopg
+
+with psycopg.connect("dbname=mydb user=api_user password=secret") as conn:
+    with conn.cursor() as cur:
+        cur.execute(
+            "INSERT INTO users (id, name) VALUES (%s, %s)",
+            (user_id, user_name)
+        )
+</code></pre>
+
+<pre><code class="language-python">
+# validate_json_input.py
+"""
+Validate incoming JSON data with a strict schema.
+"""
+
+import json
+from jsonschema import validate, Draft202012Validator
+
+schema = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "id": {"type": "string"},
+        "email": {"type": "string", "format": "email"}
+    },
+    "required": ["id", "email"]
+}
+
+payload = json.loads(request_body)  # never use pickle/yaml unsafe loaders
+Draft202012Validator(schema).validate(payload)
+</code></pre>
+
+<pre><code class="language-python">
+# safe_xml_parser.py
+"""
+Parse XML safely by disabling external entities (XXE protection) and network access.
+"""
+
+from lxml import etree
+
+parser = etree.XMLParser(
+    resolve_entities=False,
+    no_network=True,
+    dtd_validation=False,
+    load_dtd=False
+)
+root = etree.fromstring(xml_data, parser=parser)
+</code></pre>
 
 </div>
 </section>
@@ -488,39 +551,3 @@ The client operates in <b>Private Healthcare Services (UK)</b>, offering GP cons
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
