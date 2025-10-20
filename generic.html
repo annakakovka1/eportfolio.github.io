@@ -280,8 +280,8 @@ print(f"✅ Scraped {len(jobs)} '{KEYWORD}' job(s). Data saved to {output_file}.
 <p class="normal-text">
 This short specification defines how a Python-based API securely exchanges data using JSON, XML, and SQL. All communication must use HTTPS with modern TLS to protect data in transit. Authentication relies on OAuth 2.1 or signed JWTs, and access is restricted by least-privilege roles at both the API and database layers. Secrets such as API keys and database credentials must be kept in a secret manager and never hardcoded. Inputs are limited to JSON and XML and must be validated against strict schemas. XML parsing disables DTDs and external entities to mitigate XXE. SQL access uses parameterised queries or a safe ORM to prevent injection. Logs capture security-relevant events while redacting personal data and credentials, and rate limiting is applied to defend against abuse and denial-of-service. Data is encrypted at rest, and retention/deletion policies are enforced to meet privacy and governance obligations. The CI/CD pipeline includes static analysis, dependency checks, and targeted security tests (SQLi, XXE, malformed input) before release. The whole team—developers, data engineers, and DevOps—shares responsibility for implementing and monitoring these controls.
 </p>
+<p class="subtitle">Example secure partices (Python)</p>
 
-<h4 class="section-label">Example secure practices (Python)</h4>
 
 <pre><code class="language-python">
 # secure_sql_insert.py
@@ -551,4 +551,5 @@ The client operates in <b>Private Healthcare Services (UK)</b>, offering GP cons
 
 </body>
 </html>
+
 
