@@ -98,6 +98,48 @@
 			.references p {
 				margin-bottom: 0.6rem;
 			}
+
+			.analysis-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 1.5rem;
+				margin: 2rem 0;
+			}
+
+			.analysis-card {
+				background: rgba(255, 255, 255, 0.035);
+				border: 1px solid rgba(255,255,255,0.1);
+				border-radius: 10px;
+				padding: 1.5rem;
+			}
+
+			.analysis-card h4 {
+				margin-top: 0;
+				margin-bottom: 0.85rem;
+			}
+
+			.code-block {
+				background: rgba(0, 0, 0, 0.28);
+				border: 1px solid rgba(255,255,255,0.08);
+				border-radius: 8px;
+				padding: 1rem;
+				overflow-x: auto;
+				font-size: 0.9rem;
+				line-height: 1.5;
+				margin: 1rem 0;
+			}
+
+			.figure-box {
+				background: rgba(255,255,255,0.03);
+				border: 1px dashed rgba(255,255,255,0.2);
+				border-radius: 10px;
+				padding: 1.25rem;
+				margin: 1rem 0;
+			}
+
+			.figure-box p:last-child {
+				margin-bottom: 0;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -325,6 +367,175 @@
 							<p><em>Jaccard, P. (1901) ‘Étude comparative de la distribution florale dans une portion des Alpes et du Jura’, Bulletin de la Société Vaudoise des Sciences Naturelles, 37, pp. 547–579.</em></p>
 							<p><em>Kelleher, J.D., Mac Namee, B. and D’Arcy, A. (2020) Fundamentals of Machine Learning for Predictive Data Analytics. 2nd edn. Cambridge, MA: MIT Press.</em></p>
 							<p><em>Tan, P.-N., Steinbach, M. and Kumar, V. (2019) Introduction to Data Mining. 2nd edn. Boston: Pearson.</em></p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Perceptron Activities -->
+				<section id="perceptron-activities">
+					<div class="inner">
+						<header class="major">
+							<h3>Perceptron Activities (Artificial Neural Networks): Dataset Applicability and Critical Analysis</h3>
+						</header>
+
+						<p>This portfolio activity explored three introductory artificial neural network tasks: a simple perceptron, a perceptron trained on the AND logic gate, and a multi-layer perceptron (MLP). The purpose was to understand how dataset characteristics influence algorithm selection, model behaviour and the quality of predictive outcomes. Across the exercises, the key learning outcome was that machine learning performance depends not only on the algorithm itself, but also on whether the dataset is linearly separable, noisy, small, balanced and suitable for the model being used.</p>
+
+						<div class="highlight-box">
+							<h4>Learning Outcome Addressed</h4>
+							<p>This activity demonstrates understanding of the applicability and challenges associated with different datasets for machine learning algorithms by running perceptron-based models and critically analysing their performance, limitations and suitability.</p>
+						</div>
+
+						<h4 class="section-label">Overview of the Three Activities</h4>
+						<div class="result-grid">
+							<div class="result-card">
+								<h4>Simple Perceptron</h4>
+								<p>Introduced the perceptron learning rule, weight updates and binary classification using a straight-line decision boundary.</p>
+								<span class="result-label">Linear classification</span>
+							</div>
+							<div class="result-card">
+								<h4>AND Operator</h4>
+								<p>Tested the perceptron on a small, linearly separable truth-table dataset and showed successful convergence.</p>
+								<span class="result-label">Ideal perceptron dataset</span>
+							</div>
+							<div class="result-card">
+								<h4>Multi-Layer Perceptron</h4>
+								<p>Extended the analysis to a network with hidden layers capable of learning more complex and non-linear relationships.</p>
+								<span class="result-label">Non-linear modelling</span>
+							</div>
+						</div>
+
+						<div class="section-divider"></div>
+
+						<h4 class="section-label">Code Explanation and Model Logic</h4>
+						<div class="analysis-grid">
+							<div class="analysis-card">
+								<h4>Simple Perceptron Implementation</h4>
+								<p>The simple perceptron notebook focused on the standard perceptron learning process. The model begins by initialising weights and a bias term, then repeatedly updates them based on prediction errors across the training data.</p>
+								<div class="code-block"><pre><code>weights = np.zeros(n_features)
+bias = 0
+learning_rate = 0.1
+
+for epoch in range(epochs):
+    for x_i, y_i in zip(X, y):
+        linear_output = np.dot(x_i, weights) + bias
+        y_pred = 1 if linear_output >= 0 else 0
+        update = learning_rate * (y_i - y_pred)
+        weights += update * x_i
+        bias += update</code></pre></div>
+								<p>In practical terms, <strong>np.dot(x_i, weights) + bias</strong> computes the weighted sum of the inputs, the threshold converts that sum into a binary prediction, and the update rule adjusts the parameters whenever the model classifies an example incorrectly. This process continues until the model converges or reaches the maximum number of iterations.</p>
+							</div>
+
+							<div class="analysis-card">
+								<h4>AND Gate Perceptron</h4>
+								<p>The AND gate notebook used the perceptron on a truth table with four observations. This is one of the clearest examples of linearly separable data because only the input pair (1,1) belongs to the positive class.</p>
+								<div class="code-block"><pre><code>X = np.array([[0,0], [0,1], [1,0], [1,1]])
+y = np.array([0, 0, 0, 1])
+
+perceptron.fit(X, y)
+predictions = perceptron.predict(X)</code></pre></div>
+								<p>This code defines the dataset explicitly, trains the model and then tests whether the learned weights correctly classify each input. Because the data is linearly separable, the perceptron is able to converge and produce the correct output for all four combinations.</p>
+							</div>
+
+							<div class="analysis-card">
+								<h4>Multi-Layer Perceptron</h4>
+								<p>The multi-layer perceptron notebook moved beyond the limitations of a single-layer model by introducing hidden neurons and non-linear activation functions.</p>
+								<div class="code-block"><pre><code>from sklearn.neural_network import MLPClassifier
+
+model = MLPClassifier(
+    hidden_layer_sizes=(5,),
+    activation='relu',
+    max_iter=1000
+)
+
+model.fit(X_train, y_train)
+predictions = model.predict(X_test)</code></pre></div>
+								<p>Here, the hidden layer enables the model to capture more complex patterns than a simple perceptron can learn. The fitting stage uses backpropagation to reduce prediction error iteratively, and the final predictions are tested on unseen data to assess generalisation.</p>
+							</div>
+						</div>
+
+						<div class="section-divider"></div>
+
+						<h4 class="section-label">Visual Interpretation of Results</h4>
+						<div class="analysis-grid">
+							<div class="analysis-card">
+								<h4>Decision Boundary: Simple Perceptron</h4>
+								<div class="figure-box">
+									<p><strong>Suggested figure:</strong> Scatter plot of the two classes with a straight-line decision boundary.</p>
+									<p><strong>Interpretation:</strong> A successful perceptron creates a clear straight line separating the classes. If the dataset is truly linearly separable, most or all points will appear on the correct side of the line. If points overlap or require a curved boundary, the simple perceptron will misclassify some observations.</p>
+								</div>
+							</div>
+
+							<div class="analysis-card">
+								<h4>AND Gate Classification Plot</h4>
+								<div class="figure-box">
+									<p><strong>Suggested figure:</strong> A 2D plot of the four input combinations, highlighting that only (1,1) is classified as 1.</p>
+									<p><strong>Interpretation:</strong> This visualisation shows why the AND dataset is suitable for a perceptron. A single straight-line boundary can isolate the positive case from the negative cases. This confirms the theory that perceptrons are effective on linearly separable problems.</p>
+								</div>
+							</div>
+
+							<div class="analysis-card">
+								<h4>MLP Loss Curve and Accuracy</h4>
+								<div class="figure-box">
+									<p><strong>Suggested figure:</strong> Loss curve over training epochs, and a comparison of training and testing accuracy.</p>
+									<p><strong>Interpretation:</strong> A steadily decreasing loss curve indicates that the model is learning effectively. If training accuracy is high but testing accuracy is much lower, this may suggest overfitting. When both remain reasonably strong, the model is more likely to generalise well to new data.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="highlight-box">
+							<h4>Critical Result Summary</h4>
+							<p>The simple perceptron and AND gate activities demonstrate that single-layer networks perform well when datasets are linearly separable and low in complexity. The MLP activity shows that more advanced architectures are necessary for handling non-linear datasets, but this added capability also introduces greater computational cost, more hyperparameter choices and an increased risk of overfitting.</p>
+						</div>
+
+						<h4 class="section-label">Critical Analysis of Dataset Applicability</h4>
+						<div class="reflection-grid">
+							<div class="reflection-card">
+								<h4>Linearly Separable Data</h4>
+								<p>Simple perceptrons are highly suitable for linearly separable datasets because they learn a single linear decision boundary efficiently. The AND gate is a strong example of this and illustrates fast convergence with minimal computational cost.</p>
+							</div>
+							<div class="reflection-card">
+								<h4>Non-Linear Data</h4>
+								<p>When the dataset is not linearly separable, a single-layer perceptron becomes inadequate. In such cases, an MLP is more appropriate because hidden layers enable the model to represent more complex and non-linear patterns.</p>
+							</div>
+							<div class="reflection-card">
+								<h4>Dataset Size and Simplicity</h4>
+								<p>The small synthetic datasets used in these activities are excellent for learning foundational concepts, but they do not reflect the messiness of real-world data. As a result, their value is educational rather than predictive or broadly generalisable.</p>
+							</div>
+							<div class="reflection-card">
+								<h4>Noise and Data Quality</h4>
+								<p>In practice, real datasets often include noise, missing values and imbalance. These issues can reduce performance, distort the decision boundary and make evaluation more difficult. This means preprocessing and careful validation are essential.</p>
+							</div>
+							<div class="reflection-card">
+								<h4>Model Complexity and Risk</h4>
+								<p>Although MLPs are more flexible, they require greater tuning, more training time and closer evaluation. Without appropriate parameter selection, a model may overfit training data and perform poorly on unseen examples.</p>
+							</div>
+							<div class="reflection-card">
+								<h4>Professional Judgement</h4>
+								<p>These exercises reinforced that choosing a model is not just a technical task. It requires critical judgement about the nature of the dataset, the complexity of the problem and the trade-off between interpretability, accuracy and computational efficiency.</p>
+							</div>
+						</div>
+
+						<div class="section-divider"></div>
+
+						<h4 class="section-label">Reflection</h4>
+						<p>This activity provided practical insight into how machine learning models behave when exposed to different types of datasets. By implementing and analysing the simple perceptron, the AND gate perceptron and the multi-layer perceptron, I developed a clearer understanding of both the strengths and limitations of neural network models.</p>
+
+						<p>One of the most important lessons learned was the significance of dataset structure. Initially, I assumed that a single model could be applied universally; however, through experimentation, it became clear that the simple perceptron only performs well on linearly separable data. For example, the AND gate dataset produced perfect results because it can be separated by a straight line. This reinforced the theoretical concept that perceptrons rely on linear decision boundaries.</p>
+
+						<p>A key challenge I encountered was understanding why the perceptron fails on more complex datasets. This led me to explore the limitations of linear models and appreciate the need for hidden layers and non-linear activation functions in multi-layer perceptrons. Implementing the MLP helped me see how additional layers improve model flexibility, although it also introduced new difficulties such as longer training times and the need for parameter tuning.</p>
+
+						<p>Another important reflection is related to model evaluation. Running the code alone was not sufficient; interpreting outputs such as accuracy and loss curves required critical thinking. I learned that high accuracy does not always indicate a good model, especially if overfitting occurs. This emphasised the importance of comparing training and testing performance rather than relying on a single metric.</p>
+
+						<p>In terms of skills development, this activity improved my ability to read and understand machine learning code, interpret model outputs and visualisations, and critically evaluate the suitability of algorithms for different datasets. If I were to extend this work, I would apply the models to more realistic datasets, experiment with different hyperparameters and compare perceptrons with other machine learning methods such as decision trees or support vector machines.</p>
+
+						<p>Overall, this activity strengthened my understanding of how machine learning models interact with data and highlighted the importance of critical analysis rather than simply running algorithms. It showed that successful machine learning depends not only on implementation, but on informed judgement about the dataset, the model and the meaning of the results.</p>
+
+						<h4 class="section-label">References</h4>
+						<div class="references">
+							<p><em>Bishop, C.M. (2006) Pattern Recognition and Machine Learning. New York: Springer.</em></p>
+							<p><em>Géron, A. (2019) Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow. 2nd edn. Sebastopol, CA: O’Reilly Media.</em></p>
+							<p><em>Goodfellow, I., Bengio, Y. and Courville, A. (2016) Deep Learning. Cambridge, MA: MIT Press.</em></p>
+							<p><em>Rosenblatt, F. (1958) ‘The perceptron: A probabilistic model for information storage and organization in the brain’, Psychological Review, 65(6), pp. 386–408.</em></p>
 						</div>
 					</div>
 				</section>
