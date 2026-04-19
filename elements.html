@@ -95,6 +95,12 @@
 				border-top: 1px solid rgba(255,255,255,0.12);
 			}
 
+			.section-label {
+				margin-top: 1.5rem;
+				margin-bottom: 1rem;
+				font-size: 1.05rem;
+			}
+
 			.references p {
 				margin-bottom: 0.6rem;
 			}
@@ -199,7 +205,7 @@
 				</section>
 
 				<!-- Initial Discussion -->
-				<section id="initial-post">
+				<section id="initial-post-healthcare">
 					<div class="inner">
 						<header class="major">
 							<h3>Discussion: Initial Post: Rethinking Digital Resilience in Healthcare—Lessons from the HSE Cyberattack</h3>
@@ -541,7 +547,7 @@ predictions = model.predict(X_test)</code></pre></div>
 				</section>
 
 				<!-- Initial Discussion 2 -->
-				<section id="initial-post">
+				<section id="initial-post-ai-writing">
 					<div class="inner">
 						<header class="major">
 							<h3>Initial Post-Robo-Writers and Epistemic Risk: A Critical Evaluation of AI-Generated Text in Socio-Technical Contexts</h3>
@@ -553,8 +559,6 @@ predictions = model.predict(X_test)</code></pre></div>
 						<p>In creative writing, AI offers novel collaborative possibilities, enabling co-creation and experimentation beyond human limitations. Yet, it raises ethical concerns regarding originality, intellectual property, and cultural homogenisation (Elgammal et al., 2017). The risk is not only technical but also socio-cultural, as machine-generated narratives may replicate dominant patterns in training data.</p>
 						<p>Critically, the application of AI writers must include risk mitigation strategies, such as transparency mechanisms, human oversight, and dataset auditing. While AI can augment human capabilities, its deployment without robust governance frameworks may undermine trust, creativity, and accountability. Thus, balancing innovation with ethical safeguards is essential in real-world machine learning applications.</p>
 
-
-
 						<h4 class="section-label">References</h4>
 						<div class="references">
 							<p><em>Bender, E.M., Gebru, T., McMillan-Major, A. and Shmitchell, S. (2021) ‘On the dangers of stochastic parrots: Can language models be too big?’, Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency, pp. 610–623.</em></p>
@@ -562,12 +566,11 @@ predictions = model.predict(X_test)</code></pre></div>
 							<p><em>Elgammal, A., Liu, B., Elhoseiny, M. and Mazzone, M. (2017) ‘CAN: Creative adversarial networks’, Proceedings of the International Conference on Computational Creativity.</em></p>
 							<p><em>Floridi, L. and Chiriatti, M. (2020) ‘GPT-3: Its nature, scope, limits, and consequences’, Minds and Machines, 30(4), pp. 681–694.</em></p>
 							<p><em>Hutson, M. (2021) ‘Robo-writers: the rise and risks of language-generating AI’, Nature.</em></p>
-
-
 						</div>
 					</div>
 				</section>
-									<!-- CNN Coursework Reflection -->
+
+				<!-- CNN Coursework Reflection -->
 				<section id="cnn-coursework-reflection">
 					<div class="inner">
 						<header class="major">
@@ -643,12 +646,134 @@ print("Actual:", LABEL_NAMES[y_test[7][0]])</code></pre></div>
 							<p><em>TensorFlow (2024) Keras API documentation. Available at: https://www.tensorflow.org/ (Accessed: 19 April 2026).</em></p>
 						</div>
 					</div>
-				</section></div>
 				</section>
 
+				<!-- Group Meeting Report -->
+				<section id="airbnb-meeting-report">
+					<div class="inner">
+						<header class="major">
+							<h3>Group Meeting Report: Airbnb Business Analysis Assessment</h3>
+						</header>
+
+						<p>This section documents the initial project-planning meeting for the Airbnb Business Analysis Assessment. The purpose of the meeting was to establish a coherent analytical direction, clarify the assessment requirements, and define a business question that was both strategically relevant and methodologically feasible. The discussion focused on aligning the project with the expectations of the Machine Learning module while ensuring that the final output would remain business-oriented, evidence-based and suitable for executive interpretation.</p>
+
+						<div class="highlight-box">
+							<h4>Meeting Purpose</h4>
+							<p>The meeting was used to define the analytical focus of the assessment, confirm the suitability of the dataset and agree a rigorous business question that could be investigated using segmentation, exploratory analysis and machine learning-informed reasoning.</p>
+						</div>
+
+						<h4 class="section-label">Meeting Overview</h4>
+						<div class="result-grid">
+							<div class="result-card">
+								<h4>Date and Time</h4>
+								<p>21 February 2026<br />15:00 (UK)</p>
+								<span class="result-label">Online meeting</span>
+							</div>
+
+							<div class="result-card">
+								<h4>Project Context</h4>
+								<p>Airbnb Business Analysis Assessment within the Machine Learning module.</p>
+								<span class="result-label">Applied analytics</span>
+							</div>
+
+							<div class="result-card">
+								<h4>Key Outcome</h4>
+								<p>A final business question was agreed, alongside a clear analytical direction.</p>
+								<span class="result-label">Question confirmed</span>
+							</div>
+						</div>
+
+						<h4 class="section-label">Assessment Context and Analytical Direction</h4>
+						<p>The team reviewed the assessment brief and confirmed that the submission requires a concise group report supported by relevant visualisations and portfolio artefacts. From the outset, it was recognised that stronger submissions would need to move beyond surface-level description and instead demonstrate justified analytical choices, business relevance and critical interpretation.</p>
+
+						<p>Following discussion, the team agreed that the project should adopt a <strong>machine learning-led pricing analysis</strong>. This direction was considered appropriate because the Airbnb dataset contains the core variables needed to explore pricing patterns, segment listings and generate actionable recommendations. In particular, the dataset includes variables such as <em>neighbourhood_group</em>, <em>room_type</em>, <em>price</em> and <em>availability</em>, which together provide a strong basis for analysing how listing characteristics may influence market competitiveness.</p>
+
+						<div class="highlight-box">
+							<h4>Final Business Question</h4>
+							<p><strong>What is the optimal price range per neighbourhood_group × room_type segment that maximises booking possibility while preserving competitive host earnings?</strong></p>
+						</div>
+
+						<p>This question was selected because it reflects a commercially meaningful problem rather than a purely technical exercise. It places pricing strategy at the centre of the analysis and seeks to balance two competing priorities: improving booking potential and maintaining financially viable returns for hosts. As a result, the question has clear relevance to marketplace decision-making and is capable of producing recommendations that would be meaningful to non-technical stakeholders.</p>
+
+						<div class="section-divider"></div>
+
+						<h4 class="section-label">Critical Rationale for Question Selection</h4>
+						<div class="reflection-grid">
+							<div class="reflection-card">
+								<h4>Business Relevance</h4>
+								<p>The selected question focuses on pricing, which is a central driver of competitiveness within peer-to-peer accommodation platforms. Identifying optimal price ranges has direct value for both host decision-making and wider platform strategy.</p>
+							</div>
+
+							<div class="reflection-card">
+								<h4>Analytical Feasibility</h4>
+								<p>The structure of the dataset supports segmentation by neighbourhood group and room type, making it possible to compare pricing patterns across distinct market categories in a systematic way.</p>
+							</div>
+
+							<div class="reflection-card">
+								<h4>Machine Learning Alignment</h4>
+								<p>The question fits the module’s emphasis on applied machine learning because it allows exploratory analysis, feature-based comparison and the possible use of predictive methods to strengthen the interpretation of pricing behaviour.</p>
+							</div>
+
+							<div class="reflection-card">
+								<h4>Executive Value</h4>
+								<p>The anticipated outputs can be translated into practical recommendations, such as suggested pricing bands or segment-specific pricing guidance, rather than remaining as purely technical model results.</p>
+							</div>
+						</div>
+
+						<h4 class="section-label">Proposed Data Strategy</h4>
+						<p>To address the question effectively, the team agreed that the analysis should begin with exploratory data analysis to identify structural patterns, outliers and relationships between price, room type, location and booking-related variables. This stage is necessary to determine whether meaningful pricing differences exist across segments and whether the available data can support robust recommendations.</p>
+
+						<p>Preprocessing will also be important. The team identified the need to examine missing values, mitigate extreme pricing outliers and ensure that segment-level comparisons remain interpretable. Because the question relies on the interaction between <em>neighbourhood_group</em> and <em>room_type</em>, segmentation will be central to the analysis rather than treated as a secondary descriptive feature.</p>
+
+						<div class="analysis-grid">
+							<div class="analysis-card">
+								<h4>Exploratory Analysis Focus</h4>
+								<p>The exploratory stage will examine how prices vary across neighbourhood groups and room types, how availability behaves within each segment, and whether patterns suggest meaningful thresholds or pricing bands associated with stronger booking possibility.</p>
+							</div>
+
+							<div class="analysis-card">
+								<h4>Booking Possibility Proxy</h4>
+								<p>Because direct booking data is not available in the dataset, availability-related variables are expected to be used as a proxy for booking possibility. This introduces interpretive limitations, but it also enables the team to make a reasoned and transparent business inference from the available evidence.</p>
+							</div>
+
+							<div class="analysis-card">
+								<h4>Expected Output</h4>
+								<p>The final output is expected to identify optimal or competitive price ranges for each neighbourhood_group × room_type segment and explain these in a way that supports practical pricing recommendations.</p>
+							</div>
+						</div>
+
+						<div class="highlight-box">
+							<h4>Methodological Reflection</h4>
+							<p>A key strength of the chosen question is that it combines segmentation, business interpretation and machine learning-informed analysis. However, the team also recognised that the concept of “booking possibility” must be operationalised carefully, since the dataset does not directly record booking conversions. This means that the final recommendations will need to be presented with appropriate caution and critical reflection.</p>
+						</div>
+
+						<h4 class="section-label">Visualisation and Communication Strategy</h4>
+						<p>The team agreed that the final report should prioritise clear, executive-ready visualisations rather than overly technical outputs. Planned visualisations are expected to include price distributions by neighbourhood group, room-type comparisons within segments, and plots showing how pricing varies in relation to availability. These visual outputs will be important for translating analysis into accessible business insight.</p>
+
+						<p>This decision reflects an important lesson from machine learning practice: analytical quality is not only determined by model construction, but also by the clarity with which findings are communicated to stakeholders. In this context, visualisation serves both an explanatory and a decision-support function.</p>
+
+						<div class="section-divider"></div>
+
+						<h4 class="section-label">Reflection</h4>
+						<p>This meeting was important because it shaped the intellectual direction of the group assessment at an early stage. Rather than beginning immediately with modelling, the discussion emphasised the need to define a strong business problem first. I found this especially valuable because it reinforced that successful machine learning projects are not driven solely by algorithms, but by the quality of the question being asked and the extent to which the analysis remains connected to decision-making needs.</p>
+
+						<p>One of the most significant outcomes of the meeting was the shift from a broad pricing idea to a more precise and analytically meaningful question. The final question is stronger because it introduces segmentation explicitly and focuses on the balance between demand potential and host earnings. This makes the task more challenging, but also more relevant and more aligned with the critical expectations of postgraduate-level work.</p>
+
+						<p>The meeting also highlighted the importance of methodological caution. Although the dataset appears well suited to pricing analysis, it does not include direct booking outcomes. As a result, any reference to booking possibility must be inferred through proxy indicators rather than measured directly. This was a useful reminder that machine learning and business analytics often involve working within data limitations, and that professional integrity requires those limitations to be acknowledged clearly.</p>
+
+						<p>Overall, this planning process strengthened my understanding of how machine learning projects should be framed in practice. It showed that rigorous analytical work begins with problem definition, critical feasibility assessment and thoughtful interpretation of what the data can and cannot support. In this sense, the meeting contributed not only to the group project itself, but also to my wider development in structured, evidence-based analytical thinking.</p>
+
+						<h4 class="section-label">References</h4>
+						<div class="references">
+							<p><em>Group Meeting Agenda: Airbnb Business Analysis Assessment (2026) Module planning document.</em></p>
+							<p><em>Source material for meeting structure and objectives derived from the project agenda provided for the Airbnb Business Analysis Assessment.</em></p>
+						</div>
+					</div>
+				</section>
 
 			</div>
-		<!-- Footer -->
+
+			<!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
 					<ul class="icons">
@@ -674,3 +799,4 @@ print("Actual:", LABEL_NAMES[y_test[7][0]])</code></pre></div>
 		<script src="assets/js/main.js"></script>
 
 	</body>
+</html>
